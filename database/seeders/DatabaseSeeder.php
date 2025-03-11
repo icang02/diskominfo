@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
       DocumentTypeSeeder::class,
 
       NewsSeeder::class,
+      OrganizationDetailSeeder::class,
+      EmployeeSeeder::class
     ]);
   }
 }

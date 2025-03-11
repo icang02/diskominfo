@@ -10,7 +10,7 @@
     @foreach ($news as $item)
       <div class="col-span-12 lg:col-span-4">
         <div class="after:h-[2px] rounded border border-neutral-100 shadow bottom-underline">
-          <img class="aspect-4/2.5 lg:aspect-4/3" src="{{ urL($item->image) }}" alt="img">
+          <img class="aspect-16/9 lg:aspect-4/3" src="{{ urL($item->image) }}" alt="img">
           <div class="p-6">
             <a wire:navigate href="{{ route('show.news', $item->slug) }}">
               <span

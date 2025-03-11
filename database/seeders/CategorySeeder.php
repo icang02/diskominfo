@@ -49,16 +49,6 @@ class CategorySeeder extends Seeder
         'slug'          => 'regulasi-dan-kebijakan',
         'description'   => 'Informasi tentang regulasi dan kebijakan di bidang komunikasi dan informatika.'
       ],
-      [
-        'category_name' => 'Pengaduan Masyarakat',
-        'slug'          => 'pengaduan-masyarakat',
-        'description'   => 'Layanan pengaduan dan aspirasi masyarakat terkait layanan Diskominfo.'
-      ],
-      [
-        'category_name' => 'Siaran Pers',
-        'slug'          => 'siaran-pers',
-        'description'   => 'Siaran pers resmi dari Diskominfo.'
-      ]
     ];
 
 

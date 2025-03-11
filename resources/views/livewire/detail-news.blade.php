@@ -45,7 +45,7 @@
           </div>
 
           <!-- News Text -->
-          <div class="mt-8 prose prose-sm">
+          <div class="mt-8 prose prose-sm max-w-none">
             {!! $news->content !!}
           </div>
           {{-- Bottom Social Button --}}
@@ -89,13 +89,13 @@
             <ul class="prev-next flex items-center gap-3">
               <li @class(['opacity-60 pointer-events-none' => !isset($prevNews)])>
                 <a wire:navigate href="{{ isset($prevNews) ? route('show.news', $prevNews->slug) : '#' }}"
-                  class="bg-primary text-white px-4 py-2.5 rounded flex items-center gap-2 transition duration-300">
+                  class="hover:opacity-90 bg-primary text-white px-4 py-2.5 rounded flex items-center gap-2 transition duration-300">
                   <i class="fas fa-angle-double-left text-base"></i>
                 </a>
               </li>
               <li @class(['opacity-60 pointer-events-none' => !isset($nextNews)])>
                 <a wire:navigate href="{{ isset($nextNews) ? route('show.news', $nextNews->slug) : '#' }}"
-                  class="bg-primary text-white px-4 py-2.5 rounded flex items-center gap-2 transition duration-300">
+                  class="hover:opacity-90 bg-primary text-white px-4 py-2.5 rounded flex items-center gap-2 transition duration-300">
                   <i class="fas fa-angle-double-right text-base"></i>
                 </a>
               </li>
@@ -105,7 +105,8 @@
       </div>
 
       <div class="col-span-12 lg:col-span-4">
-        <x-search-and-categories :categories="$categories" />
+        <x-card-search class="hidden lg:block" />
+        <x-card-categories :categories="$categories" />
       </div>
     </div>
   </section>

@@ -21,11 +21,27 @@
         <li @class(['nav-link', 'active' => request()->is('/')])>
           <a wire:navigate href="{{ route('home') }}">Beranda</a>
         </li>
-        <li @class(['nav-link', 'active' => request()->is('/profil')])><a href="#">Profil <i class="icofont-rounded-down"></i></a>
-          <ul class="dropdown hidden">
-            <li><a href="index.html">Visi & Misi</a></li>
-            <li><a href="index.html">Struktur Organisasi</a></li>
-            <li><a href="index.html">Lorem ipsum</a></li>
+        <li @class([
+            'nav-link relative group',
+            'active' => request()->is('/profil'),
+        ])>
+          <button class="cursor-pointer">Profil &nbsp;<i class="fa-solid fa-angle-down"></i></button>
+          <ul
+            class="w-50 max-h-0 group-hover:max-h-96 transition-all ease-in duration-500 text-neutral-500 text-sm mt-13 z-50 absolute top-0 left-2 border border-l-primary bg-white overflow-hidden">
+            <li>
+              <a class="w-full px-4 py-3 block hover:text-primary transition duration-500" wire:navigate
+                href="{{ route('index.profile', 'visi') }}">Visi</a>
+            </li>
+            <li>
+              <a class="w-full px-4 py-3 block hover:text-primary transition duration-500" wire:navigate
+                href="{{ route('index.profile', 'misi') }}">Misi</a>
+            </li>
+            <li><a class="w-full px-4 py-3 block hover:text-primary transition duration-500" wire:navigate
+                href="{{ route('index.profile', 'struktur') }}">Struktur
+                Organisasi</a>
+            </li>
+            <li><a class="w-full px-4 py-3 block hover:text-primary transition duration-500" wire:navigate
+                href="{{ route('index.pegawai') }}">Pegawai</a></li>
           </ul>
         </li>
         <li @class([
@@ -34,11 +50,22 @@
         ])>
           <a wire:navigate href='{{ route('category.news', 'all') }}'>Berita</a>
         </li>
-        <li @class(['nav-link', 'active' => request()->is('/layanan')])><a href="#">Layanan <i class="icofont-rounded-down"></i></a>
-          <ul class="dropdown hidden">
-            <li><a href="404.html">Sub Domain, Hosting, VPS</a></li>
-            <li><a href="404.html">Pembuatan Email Dinas</a></li>
-            <li><a href="404.html">Pengajuan TTE &#40;Tanda Tangan Elektrnoik&#41;</a></li>
+        <li @class([
+            'nav-link relative group',
+            'active' => request()->is('/layanan'),
+        ])>
+          <button class="cursor-pointer">Layanan &nbsp;<i class="fa-solid fa-angle-down"></i></button>
+          <ul
+            class="w-50 max-h-0 group-hover:max-h-96 transition-all ease-in duration-500 text-neutral-500 text-sm mt-13 z-50 absolute top-0 left-2 bg-white overflow-hidden">
+            <li>
+              <a class="w-full px-4 py-3 block hover:text-primary transition duration-500" wire:navigate
+                href="{{ route('category.news', 'all') }}">Sub Domain, Hosting, & VPS</a>
+            </li>
+            <li><a class="w-full px-4 py-3 block hover:text-primary transition duration-500" wire:navigate
+                href="index.html">Pembuatan Email Dinas</a>
+            </li>
+            <li><a class="w-full px-4 py-3 block hover:text-primary transition duration-500" wire:navigate
+                href="index.html">Pengajuan TTE</a></li>
           </ul>
         </li>
         <li @class(['nav-link', 'active' => request()->is('/dokumen')])><a href="#">Dokumen </a></li>

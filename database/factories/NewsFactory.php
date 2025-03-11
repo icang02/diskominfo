@@ -19,7 +19,7 @@ class NewsFactory extends Factory
     $title = $this->faker->sentence();
 
     // Generate konten HTML
-    $content = '<p>' . $this->faker->paragraph() . '</p>';
+    $content  = '<p>' . $this->faker->paragraph() . '</p>';
     $content .= '<p>' . $this->faker->paragraph() . '</p>';
     $content .= '<ul>';
     for ($i = 0; $i < rand(3, 10); $i++) {
@@ -29,13 +29,13 @@ class NewsFactory extends Factory
     $content .= '<p>' . $this->faker->paragraph() . '</p>';
 
     return [
-    'title'       => $title,
-    'slug'        => str()->slug($title),
-    'image'       => 'https://picsum.photos/640/480?random=' . $this->faker->numberBetween(1, 1000),
-    'content'     => $content,
-    'category_id' => $this->faker->numberBetween(1, 9),
-    'created_at'  => $this->faker->dateTimeBetween('-1 year', 'now'),
-    'updated_at'  => $this->faker->dateTimeBetween('-1 year', 'now'),
+      'title'       => $title,
+      'slug'        => str()->slug($title),
+      'image'       => 'https://picsum.photos/640/480?random=' . $this->faker->numberBetween(1, 1000),
+      'content'     => $content,
+      'category_id' => $this->faker->numberBetween(1, 7),
+      'created_at'  => $this->faker->dateTimeBetween('-1 year', 'now'),
+      'updated_at'  => $this->faker->dateTimeBetween('-1 year', 'now'),
     ];
   }
 }

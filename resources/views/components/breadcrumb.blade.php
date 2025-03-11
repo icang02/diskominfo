@@ -2,7 +2,20 @@
   style="background-image: url('{{ asset('front/img/bg-page.webp') }}')">
   <div class="relative z-10 text-white container max-w-6xl text-center">
     <div>
-      <h2 class="text-[28px] lg:text-[38px] font-bold leading-6">{{ $title }}</h2>
+      <h2 class="text-[28px] lg:text-[38px] font-bold leading-8 lg:leading-11">
+        @php
+          $words = explode(' ', $title);
+          $result = '';
+        @endphp
+
+        @foreach ($words as $index => $word)
+          @if ($index == 1)
+            {{ $word }}<br>
+          @else
+            {{ $word }}
+          @endif
+        @endforeach
+      </h2>
       <ul class="mt-5 lg:mt-8 text-sm lg:text-[15px] flex items-center justify-center space-x-2.5 lg:space-x-4">
         <li class=""><a wire:navigate href={{ route('home') }} class="text-light hover:underline">Beranda</a></li>
         <li class="text-xs"><i class="fa-solid fa-angle-right"></i></li>

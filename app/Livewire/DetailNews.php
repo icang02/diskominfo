@@ -9,10 +9,16 @@ use Livewire\Component;
 class DetailNews extends Component
 {
   public $slug;
+  public $search = '';
 
   public function mount($slug)
   {
     $this->slug = $slug;
+  }
+
+  public function handleSearch()
+  {
+    $this->redirect(route('category.news', ['slug' => 'all', 'search' => $this->search]), navigate: true);
   }
 
   public function render()

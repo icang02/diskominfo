@@ -1,19 +1,20 @@
 <div>
   <x-breadcrumb title="Berita" :list="[
       [
-          'label' => Str::title(str_replace('-', ' ', $slug)),
-          'href' => route('category.news', $slug),
+          'label' => 'Kategori',
       ],
       [
-          'label' => 'Detail',
+          'label' => Str::title(str_replace('-', ' ', $slug)),
+          'href' => route('category.news', $slug),
       ],
   ]" />
 
   <section class="mt-12 lg:mt-16 mb-17 lg:mb-20 container max-w-6xl">
+    <x-card-search class="lg:hidden mb-12" />
     <div class="grid grid-cols-12 gap-8">
       <div class="col-span-12 lg:col-span-8">
         <div class="grid grid-cols-12 gap-y-10">
-          @forelse ($news as $item)
+          @forelse ($news as $i => $item)
             <div class="col-span-12">
               <div class="rounded bg-white border border-neutral-200 flex flex-col lg:flex-row bottom-underline">
                 <img class="aspect-[16/9] w-full lg:w-[30%] h-auto rounded" src="{{ url($item->image) }}" alt="#">
@@ -39,22 +40,26 @@
                   </div>
                 </div>
               </div>
+
+              @if (count($news->items()) - 1 == $i && $news->total() > $news->perPage())
+                <div class="mt-8">
+                  {{ $news->links() }}
+                </div>
+              @endif
             </div>
           @empty
             <div class="col-span-12">
-              <p class="text-sm text-center text-neutral-500">No data found.</p>
+              <div class="p-7 text-center text-sm text-neutral-500 rounded bg-white border border-neutral-200">
+                <p>No data found.</p>
+              </div>
             </div>
           @endforelse
-          @if ($news->total() >= 5)
-            <div class="col-span-12">
-              {{ $news->links() }}
-            </div>
-          @endif
         </div>
       </div>
 
       <div class="col-span-12 lg:col-span-4">
-        <x-search-and-categories :categories="$categories" />
+        <x-card-search class="hidden lg:block" />
+        <x-card-categories :categories="$categories" />
       </div>
     </div>
   </section>

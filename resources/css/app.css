@@ -19,10 +19,10 @@
     @apply relative transition-all rounded px-6 py-3 bg-white text-primary hover:text-white font-medium text-sm after:content-[''] after:absolute after:inset-0 after:bg-[#2c2d3f] after:transform after:origin-center after:scale-x-[0.01%] hover:after:scale-x-100  after:duration-500 [&>span]:relative [&>span]:z-10;
   }
   .nav-link {
-    @apply px-4 hover:text-primary transition relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-8 after:h-[3px] after:bg-primary after:w-0 hover:after:w-[82%] after:duration-500;
+    @apply px-4 py-4 hover:text-primary transition relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-[50px] after:h-[3px] after:bg-primary after:w-0 hover:after:w-[82%] after:duration-500;
   }
   .nav-link.active {
-    @apply text-primary transition relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-8 after:h-[3px] after:bg-primary after:w-[82%] after:duration-500;
+    @apply text-primary transition relative after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:top-[50px] after:h-[3px] after:bg-primary after:w-[82%] after:duration-500;
   }
   .bline {
     @apply border border-red-500;
